@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+   <!-- ALTIMETER -->
+  <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> 0.798 </x-m>
+      <y-m> 0.179 </y-m>
+      <z-m>  0.331 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+  
+  <!-- TURN -->
+  <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/turn/turn.xml</path>
+    <offsets>
+      <x-m> 0.794 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.396 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model> 
+
+   <!-- MAGNETO -->
+  <!-- <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/magneto/magneto.xml</path>
+    <offsets>
+      <x-m> 0.689 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.26 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model> -->
+  
+  <!-- FUEL SELECTOR -->
+  <!-- <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/fuelselector/fuelselector.xml</path>
+    <offsets>
+      <x-m>  0.798 </x-m>
+      <y-m> -0.070 </y-m>
+      <z-m> 0.346 </z-m>
+    </offsets>
+  </model> -->
+  
+  <!-- PUMP SELECTOR -->
+  <!-- <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/pump/pump.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.370 </y-m>
+      <z-m> 0.040 </z-m>
+    </offsets>
+  </model> -->
+  
+     <!-- RPM -->
+  <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/RPM/tach.xml</path>
+    <offsets>
+      <x-m>   0.9254 </x-m>
+      <y-m>   0.004 </y-m>
+      <z-m>  0.5843 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   -18.00 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Compass -->
+  <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/compass/wingcompass.xml</path>
+    <offsets>
+      <x-m> -0.0212 </x-m>
+      <y-m>  -0.802 </y-m>
+      <z-m>  -0.487 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- ASI -->
+  <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/ASI/asi.xml</path>
+    <offsets>
+      <x-m>  0.798 </x-m>
+      <y-m>  -0.157 </y-m>
+      <z-m>  0.432 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- fuel -->
+  <model>
+    <path>Aircraft/Fokker-DVII/Models/Panel/Instruments/fuel/fuel.xml</path>
+    <offsets>
+      <x-m>  0.3552 </x-m>
+      <y-m>  0.0002 </y-m>
+      <z-m>  0.7016 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+</PropertyList>
+

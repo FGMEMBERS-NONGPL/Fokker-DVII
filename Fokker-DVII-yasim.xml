@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+
+<!--
+************************************************************************
+YASim aerodynamic model for Fokker-D.II  FDM made/adapted by Lester Boffo.
+
+Specifications: from https://en.wikipedia.org/wiki/Fokker_D.VII
+
+General characteristics
+
+    Crew: 1
+    Length: 6.954 m (22 ft 10 in)
+    Wingspan: 8.9 m (29 ft 2 in)
+    Height: 2.75 m (9 ft 0 in)
+    Wing area: 20.5 m2 (221 sq ft)
+    Empty weight: 670 kg (1,477 lb)
+    Gross weight: 906 kg (1,997 lb)
+    Powerplant: 1 x Mercedes D.III 6-cyl. water-cooled in-line piston engine, 120 kW (160 hp) ** or 1 x 130.5 kW (175 hp) Mercedes D.IIIa 6-cyl. water-cooled in-line piston engine
+        or 1 x 137.95 kW (185 hp) BMW IIIa 6-cyl. water-cooled in-line piston engine (240hp rating at low level, emergency only, risk of engine damage.)
+
+Performance
+
+    Maximum speed: 189 km/h (117 mph; 102 kn) ** BMW IIIa engine 200 km/h (124 mph)
+    Service ceiling: 6,000 m (20,000 ft) [9]
+    Rate of climb: 3.92 m/s (772 ft/min) ** BMW IIIa engine 9.52 metres per second (1,874 ft/min)
+    Time to altitude: ** 1,000 m (3,281 ft) in 4 minutes 15 seconds (1 minutes 40 seconds w/ BMW IIIa
+
+Armament 
+
+    Guns: 2 x 7.92 mm (.312 in) LMG 08/15 "Spandau" machine guns
+
+************************************************************************
+-->
+<airplane mass="1347">
+
+<!-- Approach configuration -->
+<approach speed="44" aoa="7" fuel="0.2">
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="0.18"/>
+  <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+</approach>
+
+<!-- Cruise configuration -->
+<cruise speed="122" alt="8000" fuel="0.76">
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="0.84"/>
+  <control-setting axis="/controls/engines/engine[0]/mixture" value="0.69"/>
+</cruise>
+
+<!-- pilot's eyepoint -->
+<cockpit x="-0.62" y="0" z="0.62"/>
+
+<fuselage ax="1.435" ay="0.0" az="0.2204" bx="0.165" by="0.0" bz="0.061" width="0.970" taper="0.87" midpoint="1.0"/>
+<fuselage ax="0.165" ay="0.0" az="0.061" bx="-1.789" by="0.0" bz="0.055" width="0.99" taper="0.89" midpoint="0.42" cy="0.94" cz="0.64"/>
+<fuselage ax="-1.789" ay="0.0" az="0.055" bx="-4.786" by="0.0" bz="0.06" width="0.84" taper="0.17" midpoint="0.0" cy="1.78" cz="1.17"/>
+
+
+<!--Main Wing -->
+<wing x="-0.046" y="0.0" z="1.072"
+          length="4.25" 
+          chord="1.68"
+          taper="1.0"
+          incidence="1.25"
+          twist="-0.5"
+          sweep="0.0"
+          dihedral="0.5"
+          camber="0.126">
+  <stall aoa="17" width="4.5" peak="1.35"/>
+  <flap1 start="0.59" end="1.04" lift="1.37" drag="1.27"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+</wing>
+
+
+  <!-- Wing down -->
+  <mstab x="-0.508" y="0.328" z="-0.4724" 
+        length="3.11"
+        chord="1.25"  
+        taper="1.0" 
+        incidence="1.5"
+        twist="-0.25"
+        sweep="0.0"
+        dihedral="0.8" 
+        camber="0.122">
+        <stall aoa="15" width="4.0" peak="1.65"/>
+  </mstab>
+
+
+<hstab x="-4.65" y="-0.168" z="0.128"
+       chord="1.83"
+       length="1.481"
+       effectiveness="1.40"
+       taper="0.35"
+       incidence="0.0"
+       camber="-0.003"
+       sweep="18.0">
+  <stall aoa="18" width="4" peak="1.85"/>
+  <flap0 start="0.0" end="1.0" lift="1.45" drag="1.216"/>
+  <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+  <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+  <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+</hstab>
+
+<!-- rudder has to be able to counteract aileron drag -->
+<vstab x="-4.804" y="0" z="0.152"
+       taper="0.74" 
+       length="1.183"
+       chord="0.95"
+       effectiveness="1.4"
+       sweep="17">
+  <stall aoa="18" width="4" peak="2.0"/>
+  <flap0 start="-0.4" end="1" lift="1.405" drag="1.215"/>
+  <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+  <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+  <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"
+    min="1" max="-1"/>
+</vstab>
+
+  <!-- Engines      : BMW IIIa
+
+       Informations : https://en.wikipedia.org/wiki/BMW_IIIa
+
+General characteristics
+
+    Type: 6-cylinder, inline, water-cooled, piston engine
+    Bore: 150 mm (5.9 in)
+    Stroke: 180mm (7 in)
+    Displacement: 19.1 L (1,164 cu in)
+
+Components
+
+    Fuel system: Carburetor
+    Cooling system: Water-cooled
+
+Performance
+
+    Power output: 200 hp at 1,400 rpm
+    Compression ratio: 6.4:1
+  -->
+
+<propeller x="0.802" y="0" z="0.12"
+              mass="609"
+              radius="1.28"
+              moment="22"
+	        cruise-speed="122"
+	        cruise-rpm="1390"
+              cruise-alt="5000" 
+	        cruise-power="163"
+              takeoff-power="200" 
+	        takeoff-rpm="1400"> 
+           <actionpt x="1.326" y="0" z="0.0"/>
+             <piston-engine eng-rpm="1400"
+                            eng-power="200"
+                            displacement="1164.2"
+                            bore="5.9"
+                            stroke="7.0" 
+                            min-throttle="0.042"
+                            compression-ratio="6.4"/>
+           <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+           <control-input axis="/controls/engines/engine[0]/starter" control="STARTER"/>
+           <control-input axis="/controls/engines/engine[0]/magnetos" control="MAGNETOS"/>
+           <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>
+</propeller>
+
+ <!-- left main -->
+<gear x="0.293" y="0.872" z="-1.736"
+        compression="0.149"
+        spring="0.93"
+        damp="1.16"
+        rebound-damp="0.29"
+        dfric="0.7"
+        sfric ="0.56">
+  <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+  <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+</gear>
+
+ <!-- right main -->
+<gear x="0.293" y="-0.872" z="-1.736" 
+        compression="0.149"
+        spring="0.93"
+        damp="1.16"
+        rebound-damp="0.29"
+        dfric="0.7"
+        sfric ="0.56">
+  <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+  <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+</gear>
+
+<!-- Tail wheel -->
+
+<gear x="-4.886" y="0" z="-0.4923"
+         compression="0.040"
+         spring="0.5"
+         damp="0.24"
+         dfric="0.89"
+         sfric="0.50">
+  <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.39" dst1="-0.39"/>
+</gear>
+
+
+  <!-- Fuel  -->  
+<!-- Guess on fuel tank position -->
+<tank x="0.25" y="0" z="-0.21" capacity="172"/> 
+
+  <!-- simulated pilot and cargo weight -->
+
+ <weight x="-1.14" y="0" z="0.042" mass-prop="/sim/weight[0]/weight-lb"/>
+
+<ballast x="-0.8" y="0" z="-1.09" mass="160"/>
+
+</airplane>

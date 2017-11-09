@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>ww1_pilot_old.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>brasG</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainG</object-name>
+    <object-name>mainD</object-name>
+    <object-name>cuisseG</object-name>
+    <object-name>cuisseD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>jambed</object-name>
+    <object-name>piedG</object-name>
+    <object-name>piedD</object-name>
+    <object-name>lunettes</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>lunettesTr</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>lunettesTr</object-name>
+  </animation>
+
+  <animation>
+    <name>AnimeTete</name>
+    <object-name>lunettes</object-name>
+    <object-name>lunettesTr</object-name>
+    <object-name>tete</object-name>
+  </animation>
+
+  <animation>
+    <name>AnimeLunettes</name>
+    <object-name>lunettes</object-name>
+    <object-name>lunettesTr</object-name>
+  </animation>
+
+	<!-- De-select when in view 0 -->
+	<animation>
+		<type>select</type>
+		<object-name>Pilot</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>sim/current-view/view-number</property>
+					<value>0</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+
+
+</PropertyList>
+

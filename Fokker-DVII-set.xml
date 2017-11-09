@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+
+************************************************************************
+-->
+
+
+<PropertyList>
+
+    <note>
+        This model was created using publicly available data, publicly available
+        technical reports, textbooks, and guesses. It contains no proprietary or
+        restricted data. It has been validated only to the extent that it seems
+        to "fly right", and possibly to comply to published, publicly known,
+        performance data (maximum speed, endurance, etc.). Thus, this model
+        is meant for educational and entertainment purposes only.
+
+        This simulation model is not endorsed by any manufacturer.
+    </note>
+
+ <sim include="Systems/views.xml">
+
+	<description>Fokker-D.VII</description>
+        <author>LesterBoffo FDM, 3D and testures ArgonV, Artists of SDoE's FS-WWI</author>
+        <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
+        <version>0.01 yasim revision  2017-10-10</version>
+
+	<flight-model archive="y">yasim</flight-model>
+	<aero archive="y">Fokker-DVII-yasim</aero>
+
+	<model>
+		<path archive="y">Aircraft/Fokker-DVII/Models/fokker-dvii.xml</path>
+      <livery>
+         <file type="string">default</file>
+      </livery>
+	</model>
+
+    <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Fokker-DVII/Models/Effects/guns/submodels.xml</path>
+    </submodels>
+
+        <startup>
+            <splash-texture>Aircraft/Fokker-DVII/splash.jpg</splash-texture>
+        </startup>
+		
+	<sound>
+		<audible>true</audible>
+		<path archive="y">Aircraft/Fokker-DVII/Sounds/fokker-dvii-sound.xml</path>
+	</sound>	
+
+        <chase-distance-m type="double">-18.0</chase-distance-m>
+
+      <menubar include="Dialogs/fokker-dvii-menu.xml"/>   
+
+	  <!-- Payload -->
+  <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>150</weight-lb>
+      <max-lb>190</max-lb>
+      <min-lb>120</min-lb>
+  </weight> 
+
+
+ </sim>
+
+  <input>
+   <keyboard include="Nasal/fokker-dvii-keyboard.xml"/>
+  </input>
+
+
+ <autopilot>
+     <settings>
+         <target-altitude-ft type="float">12000</target-altitude-ft>
+         <heading-bug-deg type="float">330</heading-bug-deg>
+     </settings>
+ </autopilot>
+
+ <controls>
+        <electric>
+            <master-switch>false</master-switch>
+            <battery-switch>false</battery-switch>
+            <external-power>false</external-power>
+        </electric>
+        <switches>
+            <master-avionics>false</master-avionics>
+        </switches>
+	<gear>
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
+	<engines>
+		<engine n="0">
+			<magnetos>0</magnetos>
+		</engine>
+	</engines>
+        <flight>
+            <op-refuel-main type="bool">false</op-refuel-main>
+            <op-refuel-aux type="bool">false</op-refuel-aux>
+            <pilot-on type="bool">true</pilot-on>
+            <copilot-on type="bool">false</copilot-on>
+        </flight>
+ </controls>
+
+ <engines>
+	<engine>
+		<rpm type="double">0</rpm>
+	</engine>
+ </engines>
+
+ <nasal>
+    <guns>
+      <file>Aircraft/Fokker-DVII/Nasal/weapons.nas</file>
+      <file>Aircraft/Fokker-DVII/Nasal/revi.nas</file>
+    </guns>
+    <liveries>
+      <file>Aircraft/Fokker-DVII/Nasal/liveries.nas</file>
+    </liveries>
+    <fuelpump>
+      <file>Aircraft/Fokker-DVII/Nasal/fuelpump.nas</file>
+    </fuelpump>
+  </nasal>
+
+</PropertyList>
